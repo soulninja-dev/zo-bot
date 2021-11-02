@@ -1,4 +1,4 @@
-const { Client, Intents } = require("discord.js");
+const { Client, Intents, Permissions } = require("discord.js");
 const { token } = require("./config.json");
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -9,6 +9,7 @@ client.once("ready", () => {
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
+  if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) return message.reply("You are not an admin.");
   if (message.content.indexOf("!") !== 0) return;
 
   const command = message.content.substr(0, message.content.indexOf(" "));

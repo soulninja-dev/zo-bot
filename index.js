@@ -26,7 +26,14 @@ client.on("messageCreate", (message) => {
     for (const member of message.guild.members.cache.values()) {
       for (const memberRole of member.roles.cache.values()) {
         if (memberRole.id === role.id) {
-          member.user.send(message.content.substr(_2space));
+          let sendString = message.content.substr(_2space);
+          let replaceArray = ['username'], replaceWith = [member.user.username];
+
+          for(let i = 0; i < replaceArray.length; i++) {
+            sendString = sendString.replace(new RegExp('{' + replaceArray[i] + '}', 'gi'), replaceWith[i]);
+          }
+          
+          member.user.send(sendString);
         }
       }
     }

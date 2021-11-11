@@ -14,7 +14,17 @@ import { getAddressAndSend } from './web3-eth';
         if(event.tweet.in_reply_to_status_id_str != null){
           let status = event.tweet.in_reply_to_status_id_str;
           if(status===""){
-            getAddressAndSend(event.tweet);
+            client
+              .get("followers/list",{
+                "user_id": event.tweet.sender_id
+              })
+              .then(results => {
+                const zoacc = results.users.find(element => element.id === "our-id");
+                if(zoacc!==undefined){
+                  getAddressAndSend(event.tweet);
+                }
+              })
+              .catch(console.error);
           }
         }
 

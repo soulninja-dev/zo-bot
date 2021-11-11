@@ -4,7 +4,7 @@
 
 [x] As soon as any comment is added to our tweet, we scan for a single ETH address. 
 [x] We validate if address is correct.
-[ ] Then we check if handle follows us. 
+[x] Then we check if handle follows us. 
 [x] Save his twitter ID. 
 [ ] Check if NFT already granted. If not, we generate with script his personalized image for the NFT.
 [ ] Then, we execute Web3 smart contract, send image to IPFS hosting, get link and mint personalized NFT for this individual.

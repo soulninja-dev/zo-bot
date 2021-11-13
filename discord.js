@@ -66,3 +66,7 @@ function getPosition(string, subString, index) {
 }
 
 client.login(token);
+
+function sendMsgToChannel(msg, channel){
+  client.channels.get(channel).send(msg);
+}

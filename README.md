@@ -9,8 +9,6 @@
 
 ## ToDo:
 
-- caching & filename
-
 # Twitter
 
 - [x] As soon as any comment is added to our tweet, we scan for a single ETH address.

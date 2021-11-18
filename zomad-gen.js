@@ -323,6 +323,26 @@ const downloadLayers = async () => {
     }
   }
   localBases = b;
+  const c = {};
+  for (const category in categories) {
+    if (categories.hasOwnProperty(category)) {
+      const indieCat = categories[category];
+      c[indieCat.id] = {};
+      for (const asset of indieCat.assets) {
+        try {
+          if (Object.keys(asset).length && asset.file) {
+            c[indieCat.id][asset.id] = await fetchAsset(indieCat.id, asset.id);
+          } else {
+            c[indieCat.id][asset.id] = null;
+          }
+        } catch (error) {
+          console.log(error);
+          c[indieCat.id][asset.id] = null;
+        }
+      }
+    }
+  }
+  localLayers = c;
   return true;
 };
 

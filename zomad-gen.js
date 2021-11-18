@@ -1,5 +1,8 @@
+const tempDir = require("os").tmpdir();
 const axios = require("axios");
 const sharp = require("sharp");
+const { v4: uuidv4 } = require("uuid");
+
 fs = require("fs");
 
 const shuffleArray = (array) => {
@@ -269,31 +272,29 @@ const randomZobu = async () => {
   resString = resString.replaceAll(/(<([^>]+)g>)/gi, "");
   resString += "</svg>";
 
-  // let hash = selectedBackground.hashCode();
-  // let r = (hash & 0xff0000) >> 16;
-  // let g = (hash & 0x00ff00) >> 8;
-  // let b = hash & 0x0000ff;
+  const uid = uuidv4();
 
-  fs.writeFileSync("./example.svg", resString, function (err) {
+  fs.writeFileSync(tempDir + "/" + uid + ".svg", resString, function (err) {
     if (err) {
       return console.log(err);
     }
   });
-  return sharp(__dirname + "/example.svg", { density: 900 })
-    .resize(1024, 1024, {
+  return sharp(tempDir + "/" + uid + ".svg", { density: 900 })
+    .resize(2000, 5120, {
       kernel: sharp.kernel.nearest,
       fit: sharp.fit.cover,
       position: "top",
-      // background: { r: 255, g: 255, b: 255, alpha: 1 },
     })
     .png()
-    .toFile(__dirname + "/example.png")
+    .toFile(tempDir + "/" + uid + ".png")
     .then(function (info) {
-      return sharp(__dirname + "/example.png", { density: 900 })
-        .extract({ width: 768, height: 768, left: 128, top: 256 })
-        .toFile(__dirname + "/output.png")
+      return sharp(tempDir + "/" + uid + ".png", { density: 900 })
+        .extract({ width: 1024, height: 1024, left: 488, top: 1024 })
+        .toFile(tempDir + "/" + uid + "-output.png")
         .then(function (info) {
           console.log(info);
+
+          return uid;
         })
         .catch(function (err) {
           console.log(err);
@@ -303,23 +304,6 @@ const randomZobu = async () => {
       console.log(err);
     });
 };
-
-// fetchSeed().then((res) => {
-//   categoryProbabilities = res.probabilities;
-//   backgroundColors = res.background.colors;
-//   bases = res.bases;
-//   categories = res.categories;
-
-//   downloadLayers()
-//     .then(() => {
-//       console.log("Downloaded Assets...");
-//       randomZobu();
-//     })
-//     .catch((e) => {
-//       console.log("Assets downloading failed");
-//     })
-//     .finally(() => {});
-// });
 
 const downloadLayers = async () => {
   const b = {};

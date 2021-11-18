@@ -4,6 +4,7 @@ const {
   MessageAttachment,
   MessageEmbed,
 } = require("discord.js");
+const tempDir = require("os").tmpdir();
 const { token } = require("./config.json");
 const { flow } = require("./zomad-gen.js");
 
@@ -28,11 +29,11 @@ client.on("interactionCreate", async (interaction) => {
 
   if (commandName === "zo") {
     await interaction.deferReply({ ephemeral: true });
-    await flow();
-    const file = new MessageAttachment("./output.png");
+    const uid = await flow();
+    const file = new MessageAttachment(tempDir + "/" + uid + "-output.png");
     const exampleEmbed = new MessageEmbed()
       .setTitle("Your Avatar")
-      .setImage("attachment://output.png");
+      .setImage("attachment://" + uid + "output.png");
 
     await interaction.editReply({
       embeds: [exampleEmbed],

@@ -28,10 +28,10 @@ client.on("interactionCreate", async (interaction) => {
 
   if (commandName === "zo") {
     flow().then(async () => {
-      const file = new MessageAttachment("./example.png");
+      const file = new MessageAttachment("./output.png");
       const exampleEmbed = new MessageEmbed()
         .setTitle("Your Avatar")
-        .setImage("attachment://example.png");
+        .setImage("attachment://output.png");
       client.channels.cache
         .get("903539282835296298")
         .send({ embeds: [exampleEmbed], files: [file] });

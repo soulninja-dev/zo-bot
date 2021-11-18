@@ -279,7 +279,7 @@ const randomZobu = async () => {
       return console.log(err);
     }
   });
-  sharp(__dirname + "/example.svg", { density: 900 })
+  return sharp(__dirname + "/example.svg", { density: 900 })
     .resize(1024, 1024, {
       kernel: sharp.kernel.nearest,
       fit: sharp.fit.cover,
@@ -289,7 +289,21 @@ const randomZobu = async () => {
     .png()
     .toFile(__dirname + "/example.png")
     .then(function (info) {
-      console.log(info);
+      return sharp(__dirname + "/example.png", { density: 900 })
+        .resize(512, 512, {
+          kernel: sharp.kernel.mitchell,
+          fit: sharp.fit.fill,
+          position: "bottom",
+          // background: { r: 255, g: 255, b: 255, alpha: 1 },
+        })
+        .png()
+        .toFile(__dirname + "/output.png")
+        .then(function (info) {
+          console.log(info);
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
     })
     .catch(function (err) {
       console.log(err);

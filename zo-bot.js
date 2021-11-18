@@ -27,17 +27,18 @@ client.on("interactionCreate", async (interaction) => {
   const { commandName } = interaction;
 
   if (commandName === "zo") {
-    flow().then(async () => {
-      const file = new MessageAttachment("./output.png");
-      const exampleEmbed = new MessageEmbed()
-        .setTitle("Your Avatar")
-        .setImage("attachment://output.png");
-      client.channels.cache
-        .get("903539282835296298")
-        .send({ embeds: [exampleEmbed], files: [file] });
-    });
+    await interaction.deferReply({ ephemeral: true });
+    await flow();
+    const file = new MessageAttachment("./output.png");
+    const exampleEmbed = new MessageEmbed()
+      .setTitle("Your Avatar")
+      .setImage("attachment://output.png");
 
-    await interaction.reply("cooking up your avatar");
+    await interaction.editReply({
+      embeds: [exampleEmbed],
+      files: [file],
+      content: "Hello Zo!",
+    });
   }
 });
 

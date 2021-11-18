@@ -290,13 +290,7 @@ const randomZobu = async () => {
     .toFile(__dirname + "/example.png")
     .then(function (info) {
       return sharp(__dirname + "/example.png", { density: 900 })
-        .resize(512, 512, {
-          kernel: sharp.kernel.mitchell,
-          fit: sharp.fit.fill,
-          position: "bottom",
-          // background: { r: 255, g: 255, b: 255, alpha: 1 },
-        })
-        .png()
+        .extract({ width: 768, height: 768, left: 128, top: 256 })
         .toFile(__dirname + "/output.png")
         .then(function (info) {
           console.log(info);

@@ -1,5 +1,7 @@
 # Discord
 
+[Discod js guide](https://discordjs.guide/)
+
 ## Generate Zomad
 
 - through [jsdom](https://www.npmjs.com/package/jsdom)
@@ -7,7 +9,7 @@
 
 ## ToDo:
 
-- vertical center the avatar
+- caching & filename
 
 # Twitter
 

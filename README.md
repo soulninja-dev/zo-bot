@@ -1,5 +1,10 @@
 # Discord
 
+## Generate Zomad
+
+* through [jsdom](https://www.npmjs.com/package/jsdom)
+* [referrance](https://github.com/pwichmann/SVG_on_nodeJS)
+
 # Twitter
 
 - [x] As soon as any comment is added to our tweet, we scan for a single ETH address. 

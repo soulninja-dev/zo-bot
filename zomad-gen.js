@@ -289,7 +289,7 @@ const randomZobu = async () => {
     .toFile(tempDir + "/" + uid + ".png")
     .then(function (info) {
       return sharp(tempDir + "/" + uid + ".png", { density: 900 })
-        .extract({ width: 1024, height: 1024, left: 488, top: 1024 })
+        .extract({ width: 1280, height: 1600, left: 360, top: 384 })
         .toFile(tempDir + "/" + uid + "-output.png")
         .then(function (info) {
           console.log(info);

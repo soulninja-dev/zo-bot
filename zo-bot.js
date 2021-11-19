@@ -32,12 +32,12 @@ client.on("interactionCreate", async (interaction) => {
     const uid = await flow();
     const file = new MessageAttachment(tempDir + "/" + uid + "-output.png");
     const embedMessage = new MessageEmbed()
+      .setDescription("Zo " + interaction.user.username + ", here is your Zo Avatar! Download the image and use it everywhere! \\z/")
       .setImage("attachment://" + uid + "output.png");
 
     await interaction.editReply({
       embeds: [embedMessage],
-      files: [file],
-      content: "Zo " + interaction.user.username + ", here is your Zo Avatar! Download the image and use it everywhere! \\z/",
+      files: [file]
     });
   }
 });

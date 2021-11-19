@@ -27,18 +27,17 @@ client.on("interactionCreate", async (interaction) => {
 
   const { commandName } = interaction;
 
-  if (commandName === "zo") {
+  if (commandName === "avatar") {
     await interaction.deferReply({ ephemeral: true });
     const uid = await flow();
     const file = new MessageAttachment(tempDir + "/" + uid + "-output.png");
-    const exampleEmbed = new MessageEmbed()
-      .setTitle("")
+    const embedMessage = new MessageEmbed()
       .setImage("attachment://" + uid + "output.png");
 
     await interaction.editReply({
-      embeds: [exampleEmbed],
+      embeds: [embedMessage],
       files: [file],
-      content: "Zo!",
+      content: "Zo " + interaction.user.username + ", here is your Zo Avatar! Download the image and use it everywhere! \\z/",
     });
   }
 });

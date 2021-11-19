@@ -286,17 +286,17 @@ const randomZobu = async () => {
       position: "top",
     })
     .png()
-    .toFile(tempDir + "/" + uid + ".png")
-    .then(function (info) {
-      return sharp(tempDir + "/" + uid + ".png", { density: 900 })
-        .extract({ width: 1280, height: 1600, left: 360, top: 384 })
-        .toFile(tempDir + "/" + uid + "-output.png")
         .then(function (info) {
           console.log(info);
 
           return uid;
         })
         .catch(function (err) {
+    .toFile(tempDir + "/" + uid + ".png")
+    .then(function (info) {
+      return sharp(tempDir + "/" + uid + ".png", { density: 900 })
+        .extract({ width: 1280, height: 1600, left: 360, top: 384 })
+        .toFile(tempDir + "/" + uid + "-output.png")
           console.log(err);
         });
     })

@@ -32,13 +32,13 @@ client.on("interactionCreate", async (interaction) => {
     const uid = await flow();
     const file = new MessageAttachment(tempDir + "/" + uid + "-output.png");
     const exampleEmbed = new MessageEmbed()
-      .setTitle("Your Avatar")
+      .setTitle("")
       .setImage("attachment://" + uid + "output.png");
 
     await interaction.editReply({
       embeds: [exampleEmbed],
       files: [file],
-      content: "Hello Zo!",
+      content: "Zo!",
     });
   }
 });

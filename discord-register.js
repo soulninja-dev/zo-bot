@@ -5,7 +5,7 @@ const { clientId, guildId, token } = require("./config.json");
 
 const commands = [
   new SlashCommandBuilder()
-    .setName("zo")
+    .setName("avatar")
     .setDescription("Replies with zomad avatar!"),
 ].map((command) => command.toJSON());
 

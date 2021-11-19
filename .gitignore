@@ -1,5 +1,3 @@
-node_modules
-test.js
-temp-output.png
-temp.png
+node_modules/
+tmp/
 config.json

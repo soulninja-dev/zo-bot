@@ -306,23 +306,23 @@ const randomZobu = async () => {
 };
 
 const downloadLayers = async () => {
-  // const b = {};
-  // for (const base in bases) {
-  //   if (bases.hasOwnProperty(base)) {
-  //     const indieBase = bases[base];
-  //     try {
-  //       if (Object.keys(indieBase).length && indieBase.file) {
-  //         b[indieBase.id] = await fetchBase(indieBase.id);
-  //       } else {
-  //         b[indieBase.id] = null;
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //       b[indieBase.id] = null;
-  //     }
-  //   }
-  // }
-  // localBases = b;
+  const b = {};
+  for (const base in bases) {
+    if (bases.hasOwnProperty(base)) {
+      const indieBase = bases[base];
+      try {
+        if (Object.keys(indieBase).length && indieBase.file) {
+          b[indieBase.id] = await fetchBase(indieBase.id);
+        } else {
+          b[indieBase.id] = null;
+        }
+      } catch (error) {
+        console.log(error);
+        b[indieBase.id] = null;
+      }
+    }
+  }
+  localBases = b;
   const c = {};
   for (const category in categories) {
     if (categories.hasOwnProperty(category)) {

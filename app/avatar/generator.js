@@ -280,7 +280,7 @@ const randomZobu = async () => {
     }
   });
   return sharp(tempDir + "/" + uid + ".svg", { density: 900 })
-    .resize(2000, 5120, {
+    .resize(3000, 7680, {
       kernel: sharp.kernel.nearest,
       fit: sharp.fit.cover,
       position: "top",
@@ -289,7 +289,7 @@ const randomZobu = async () => {
     .toFile(tempDir + "/" + uid + ".png")
     .then(function (info) {
       return sharp(tempDir + "/" + uid + ".png", { density: 900 })
-        .extract({ width: 1280, height: 1280, left: 360, top: 704 })
+        .extract({ width: 2176, height: 2176, left: 412, top: 640 })
         .toFile(tempDir + "/" + uid + "-output.png")
         .then(function (info) {
           console.log(info);

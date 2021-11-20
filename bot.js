@@ -27,16 +27,16 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
-client.on("messageCreate", (message) => {
-  if (message.author.bot) return;
-  if (message.content.indexOf("!") !== 0) return;
+// client.on("messageCreate", (message) => {
+//   if (message.author.bot) return;
+//   if (message.content.indexOf("!") !== 0) return;
 
-  const command = message.content.substr(0, message.content.indexOf(" "));
-  const args = message.content.slice("!").trim().split(/ +/g);
+//   const command = message.content.substr(0, message.content.indexOf(" "));
+//   const args = message.content.slice("!").trim().split(/ +/g);
 
-  if (command === "!send-dm") {
-    sendDmCommand(message, args);
-  }
-});
+//   if (command === "!send-dm") {
+//     sendDmCommand(message, args);
+//   }
+// });
 
 client.login(token);

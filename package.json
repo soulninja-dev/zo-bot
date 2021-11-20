@@ -1,8 +1,8 @@
 {
-  "name": "zo-marketing-bot",
-  "version": "0.0.1",
+  "name": "zo-discord-bot",
+  "version": "0.1.0",
   "description": "Zo bot for discord",
-  "main": "zo-bot.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

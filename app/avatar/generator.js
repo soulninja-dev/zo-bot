@@ -289,7 +289,7 @@ const randomZobu = async () => {
     .toFile(tempDir + "/" + uid + ".png")
     .then(function (info) {
       return sharp(tempDir + "/" + uid + ".png", { density: 900 })
-        .extract({ width: 1280, height: 1600, left: 360, top: 384 })
+        .extract({ width: 1280, height: 1280, left: 360, top: 704 })
         .toFile(tempDir + "/" + uid + "-output.png")
         .then(function (info) {
           console.log(info);
@@ -303,27 +303,26 @@ const randomZobu = async () => {
     .catch(function (err) {
       console.log(err);
     });
-
 };
 
 const downloadLayers = async () => {
-  const b = {};
-  for (const base in bases) {
-    if (bases.hasOwnProperty(base)) {
-      const indieBase = bases[base];
-      try {
-        if (Object.keys(indieBase).length && indieBase.file) {
-          b[indieBase.id] = await fetchBase(indieBase.id);
-        } else {
-          b[indieBase.id] = null;
-        }
-      } catch (error) {
-        console.log(error);
-        b[indieBase.id] = null;
-      }
-    }
-  }
-  localBases = b;
+  // const b = {};
+  // for (const base in bases) {
+  //   if (bases.hasOwnProperty(base)) {
+  //     const indieBase = bases[base];
+  //     try {
+  //       if (Object.keys(indieBase).length && indieBase.file) {
+  //         b[indieBase.id] = await fetchBase(indieBase.id);
+  //       } else {
+  //         b[indieBase.id] = null;
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //       b[indieBase.id] = null;
+  //     }
+  //   }
+  // }
+  // localBases = b;
   const c = {};
   for (const category in categories) {
     if (categories.hasOwnProperty(category)) {

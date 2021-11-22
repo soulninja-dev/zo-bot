@@ -192,7 +192,7 @@ String.prototype.hashCode = function () {
   for (i = 0; i < this.length; i++) {
     chr = this.charCodeAt(i);
     hash = (hash << 5) - hash + chr;
-    hash |= 0; // Convert to 32bit integer
+    hash |= 0;
   }
   return hash;
 };
@@ -280,7 +280,7 @@ const randomZobu = async () => {
     }
   });
   return sharp(tempDir + "/" + uid + ".svg", { density: 900 })
-    .resize(3000, 7680, {
+    .resize(1200, 3072, {
       kernel: sharp.kernel.nearest,
       fit: sharp.fit.cover,
       position: "top",
@@ -288,8 +288,8 @@ const randomZobu = async () => {
     .png()
     .toFile(tempDir + "/" + uid + ".png")
     .then(function (info) {
-      return sharp(tempDir + "/" + uid + ".png", { density: 900 })
-        .extract({ width: 2176, height: 2176, left: 412, top: 640 })
+      return sharp(tempDir + "/" + uid + ".png")
+        .extract({ width: 1024, height: 1024, left: 80, top: 225 })
         .toFile(tempDir + "/" + uid + "-output.png")
         .then(function (info) {
           console.log(info);

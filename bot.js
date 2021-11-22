@@ -33,9 +33,9 @@ client.on("interactionCreate", async (interaction) => {
 
 //   const command = message.content.substr(0, message.content.indexOf(" "));
 //   const args = message.content.slice("!").trim().split(/ +/g);
-
+//   let memberPromise = message.guild.members.fetch();
 //   if (command === "!send-dm") {
-//     sendDmCommand(message, args);
+//     sendDmCommand(message, args, memberPromise);
 //   }
 // });
 

@@ -2,6 +2,7 @@ const { Client, Intents } = require("discord.js");
 const { token } = require("./config.json");
 const { avatarCommand } = require("./app/avatar/command");
 const { sendDmCommand } = require("./app/send-dm/command");
+const { newMember } = require("./app/events/newMember");
 
 const client = new Client({
   intents: [
@@ -23,7 +24,11 @@ client.on("interactionCreate", async (interaction) => {
   const { commandName } = interaction;
 
   if (commandName === "avatar") {
-    await avatarCommand(interaction);
+    await avatarCommand(interaction, true);
+  }
+
+  if (commandName === "new") {
+    await avatarCommand(interaction, false);
   }
 });
 
@@ -38,5 +43,10 @@ client.on("interactionCreate", async (interaction) => {
 //     sendDmCommand(message, args, memberPromise);
 //   }
 // });
+
+client.on("guildMemberAdd", (member) => {
+  console.log("new Member: " + member.user.username);
+  newMember(member);
+});
 
 client.login(token);

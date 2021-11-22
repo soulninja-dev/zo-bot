@@ -3,15 +3,28 @@ const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const { clientId, guildId, token } = require("./config.json");
 
-const commands = [
+const serverCommands = [
   new SlashCommandBuilder()
     .setName("avatar")
+    .setDescription("Replies with zomad avatar!"),
+].map((command) => command.toJSON());
+
+const globalCommands = [
+  new SlashCommandBuilder()
+    .setName("new")
     .setDescription("Replies with zomad avatar!"),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "9" }).setToken(token);
 
 rest
-  .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-  .then(() => console.log("Successfully registered application commands."))
+  .put(Routes.applicationGuildCommands(clientId, guildId), {
+    body: serverCommands,
+  })
+  .then(() => console.log("Successfully registered server commands."))
+  .catch(console.error);
+
+rest
+  .put(Routes.applicationCommands(clientId), { body: globalCommands })
+  .then(() => console.log("Successfully registered global commands."))
   .catch(console.error);

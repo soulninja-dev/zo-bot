@@ -2,8 +2,8 @@ const { MessageAttachment, MessageEmbed } = require("discord.js");
 const { flow } = require("./generator.js");
 const tempDir = require("os").tmpdir();
 
-const avatarCommand = async (interaction) => {
-  await interaction.deferReply({ ephemeral: true });
+const avatarCommand = async (interaction, ephemeral) => {
+  await interaction.deferReply({ ephemeral: ephemeral });
   console.log("making " + interaction.user.username + "'s avatar");
   const uid = await flow();
   console.log("uid: " + uid);

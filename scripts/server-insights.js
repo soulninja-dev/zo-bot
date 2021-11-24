@@ -16,7 +16,7 @@ client.once("ready", () => {
   console.log("Ready!");
   let rows = "";
   client.guilds.cache
-    .get("903539281727983637")
+    .get("883613639133757471")
     .members.fetch()
     .then((val) => {
       for (const mmbr of val.values()) {

@@ -1,6 +1,6 @@
 const { Client, Intents } = require("discord.js");
 const { token } = require("../config.json");
-const fs = require("fs");
+const { setZoData } = require("./google");
 
 const client = new Client({
   intents: [
@@ -14,28 +14,21 @@ const client = new Client({
 
 client.once("ready", () => {
   console.log("Ready!");
-  let rows = "";
   client.guilds.cache
-    .get("883613639133757471")
+    .get("903539281727983637")
     .members.fetch()
     .then((val) => {
+      let data = [];
       for (const mmbr of val.values()) {
         const user = mmbr.user.tag;
         const id = mmbr.id;
-        const roles = [...mmbr.roles.cache.values()]
-          .map((val) => (val.name === "@everyone" ? null : val.name))
-          .join(",");
-        rows += user + "," + id + "," + roles + "\n";
+        const roles = [...mmbr.roles.cache.values()].map((val) =>
+          val.name === "@everyone" ? "" : val.name
+        );
+        const row = [user, id, ...roles];
+        data.push(row);
       }
-
-      const filename = "./data/server-data.csv";
-      fs.writeFile(filename, rows, (err) => {
-        if (err) {
-          console.log("Error writing to csv file", err);
-        } else {
-          console.log(`saved as ${filename}`);
-        }
-      });
+      setZoData(data);
     });
 });
 

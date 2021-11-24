@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "zoworld",
+  "private_key_id": "11f5dfddb527b48eae7da0bfb96ebfb9d99adb01",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDgLWkCMMXpnmXv\nElR7Kve6aKEnW7NVdKMfKXkiV2xMdtQrV+UkI3kVLjgyVhV3ugKZBKIuBl4CBKW+\nNyafYYfpIpQRuhkbwVx4rH22AYl8mXa8l1txieHXD09SbPk4bfL/oRexDLzSICU+\nCJ5k2R56HN8e2CmKaWpALMPq0DfnZkKVkU0taGKffuxS1INzPh2dT5758/meU/JV\n0zxIMkJ3UKv1lKhB66I+TffRj8c+R3SuV79z9YTxy1HG9WTH8dbBrSlheZIrOW3v\nz+mv4uowQQSg1OIBeR1NmHeorrA6Rxb2HshGTWTy4rCevTRLypuhKQ2kO3R1LonH\n0Il6mKqJAgMBAAECggEAAKexUFvTIDkhxB6SF6ALBETs/5/xeLT0CxHEdFi8DMcm\nHJBPr5jY8Dpn2KHOw0BMZKUSUj8bhDb+Qv2HQ9z1mDVNKHYaP64DdqjOXztG6xHJ\nuohYsI6+FbJKQYvm+Ia9uIiAeLh4TsbgRPuidtn5kFLIRh9Mk8Z2FITs96EvIKJ2\n9e+0rWJpMnTMNVdW9LuhSV5DtzcEE5aMSM7bY86po3wb5A0NiiTEdPBstcM3E2/n\nUuSeS2gmJ/fSFIJ49fwR7fAYdORBWpg5m2bU3PsaiAyGTLgJU4v9+caCOiCGW4gS\nYTOj7O6QaghmGbTkhpyK0KvFPyPQCiGB8NLKmDqQ3wKBgQDwRd21zKEZRvBi7Xqy\n4X032gAYBJXlc7zsmpxbTt0+d0+YKrNmTflybYNYZXDHao2hjfZq++CW0/Vvcn+v\nSKIbMaI/sMXS//6JcQ+8VXlFssEN+NaIzrAfXKdQ0CBkGEc8iGAJSQzr31MW2y/8\n99s4uWs4t3Gd/WAtnFeMi4E/WwKBgQDu2dbdcLPLMcvPZJ5DcDfZEMcPV1BSMHBs\n28b9fvF+yjNfxvHYwBF3ujlhApzgNVc4U+zGu6qRuETGe9NTTHiez4IHySZidfx2\nCdyQhz2C3azy/RmxURstClzDEl7cbvXyIC7eTs+3xvGtrNXDBPjXl2sPMjk4zKF7\nJHpvNGQm6wKBgANfd7VNohVQwZ8h5k8Mi011afrsVY5bCZPot7kwajquQhfIwav1\n/EJ29xkOk365KDPUYlkuIAD+CLv/x3sWcfAfyj9Ko/xKS7ByPd5O9NzdnYgsrhZN\nkHtgOZkQ0uOU06st3utCc0P8ZpYzjYDnmdQ6Bh9Ns/Kb0/XP9AqtCqtxAoGBALrL\n1wR7vcDuAs0BjdyECMlUG7nduU1t4J7iCu/5tXhJPoBrIH05SO/vziwWVQXr8Xh1\n+jk6T52DFRZ9hLoiljrtYm4gXEqop3bRI5RMkEimgTnPw6YvHifNcNqGpXWTuflQ\nPhdSX5UEm8IN52eLnelN3EaYKrRHJQsfbjlGKgVdAoGBALvvZe5ktgh4zsGTGMty\nWINthY3AfIbc+6t+AjmOkMYudu+OU+YIV0UDUjOyivhRog5h0P2UnNr9bXWqYwsx\nS/NvWs+gLAGQIQXnvO48EO5bgZRx4QiYlb6tOWOIkfBudH+VIt9c11f6N5aNJpU3\nv+YiMhBxk650Mq18lbKGmN3s\n-----END PRIVATE KEY-----\n",
+  "client_email": "discord@zoworld.iam.gserviceaccount.com",
+  "client_id": "118274516564963090267",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/discord%40zoworld.iam.gserviceaccount.com"
+}

@@ -12,7 +12,7 @@ async function getAuthToken() {
 }
 
 async function setSpreadSheetValues({ spreadsheetId, auth, sheetName, data }) {
-  const res = await sheets.spreadsheets.values.append({
+  const res = await sheets.spreadsheets.values.update({
     spreadsheetId: spreadsheetId,
     auth: auth,
     range: sheetName,

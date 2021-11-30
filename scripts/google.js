@@ -1,5 +1,7 @@
 const { google } = require("googleapis");
+const request = require("request");
 const sheets = google.sheets("v4");
+const googleConfig = require("../google.json");
 
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
@@ -43,5 +45,33 @@ async function setZoData(data) {
     console.log(error.message, error.stack);
   }
 }
+
+const auth = new google.auth.JWT(
+  "discord@zoworld.iam.gserviceaccount.com",
+  null,
+  googleConfig.private_key,
+  ["https://www.googleapis.com/auth/spreadsheets.readonly"]
+);
+
+auth.getRequestHeaders().then((authorization) => {
+  let qs = {
+    gid: spreadsheetId,
+    tqx: "out:csv",
+    tq: `select B where A = 'thenikhilprakash#2887'`,
+  };
+  let options = {
+    url: `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq`,
+    qs: qs,
+    method: "get",
+    headers: authorization,
+  };
+  request(options, (err, res, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(result);
+  });
+});
 
 module.exports = { setZoData };

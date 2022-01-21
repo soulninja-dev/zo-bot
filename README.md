@@ -1,6 +1,15 @@
 # Discord
 
-[Discod js guide](https://discordjs.guide/)
+[Discord js guide](https://discordjs.guide/)
+
+# Dev setup
+
+- fork repo
+- clone locally
+- `npm ci`
+- download and setup mongodb
+- make config json file ( refer to config.example.json )
+- `npm run dev`
 
 # ToDo
 

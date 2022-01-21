@@ -3,6 +3,11 @@ const { token } = require("./config.json");
 const { avatarCommand } = require("./app/avatar/command");
 const { sendDmCommand } = require("./app/send-dm/command");
 const { newMember } = require("./app/events/newMember");
+const { connectDB } = require("./connectdb");
+const { web3commands } = require("./app/web3/web3.commands");
+
+// connecting to mongodb
+connectDB();
 
 const client = new Client({
   intents: [
@@ -15,7 +20,7 @@ const client = new Client({
 });
 
 client.once("ready", () => {
-  console.log("Ready!");
+  console.log("Bot up and running!");
 });
 
 client.on("interactionCreate", async (interaction) => {
@@ -43,6 +48,9 @@ client.on("interactionCreate", async (interaction) => {
 //     sendDmCommand(message, args, memberPromise);
 //   }
 // });
+
+// commands: ["!web3 store token", "!web3 me"]
+client.on("messageCreate", web3commands);
 
 client.on("guildMemberAdd", (member) => {
   console.log("new Member: " + member.user.username);
